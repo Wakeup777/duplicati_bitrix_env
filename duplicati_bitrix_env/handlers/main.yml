@@ -1,0 +1,15 @@
+---
+# handlers file for duplicati_bitrix_env
+- name: nginx_restart
+  service:
+    name: nginx
+    state: restarted
+
+- name: Install cert-sync
+  shell: cert-sync /etc/pki/tls/certs/ca-bundle.crt
+
+- name: Start Duplicati and Enable it on the every boot
+  service:
+    name: duplicati
+    state: started
+    enabled: yes

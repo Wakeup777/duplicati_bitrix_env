@@ -1,0 +1,15 @@
+[Unit]
+
+Description=Duplicati Backup software
+
+[Service]
+
+ExecStart=/usr/bin/mono /usr/lib/duplicati/Duplicati.Server.exe --webservice-port=8200 --webservice-interface=127.0.0.1
+
+Restart=on-failure
+
+RestartSec=30
+
+[Install]
+
+WantedBy=multi-user.target
