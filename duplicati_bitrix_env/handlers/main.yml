@@ -13,3 +13,8 @@
     name: duplicati
     state: started
     enabled: yes
+
+- name: save iptables
+  shell: "iptables-save > /etc/sysconfig/iptables"
+  become: true
+  changed_when: false    
